@@ -1,0 +1,171 @@
+object MainForm: TMainForm
+  Left = 478
+  Height = 538
+  Top = 118
+  Width = 681
+  BorderIcons = [biSystemMenu, biMinimize]
+  BorderStyle = bsSingle
+  Caption = 'Fast Card Read - uFR Series - Linear Raw read example'
+  ClientHeight = 538
+  ClientWidth = 681
+  Font.CharSet = ANSI_CHARSET
+  Font.Height = -13
+  Font.Name = 'Courier New'
+  Font.Pitch = fpFixed
+  Font.Quality = fqDraft
+  KeyPreview = True
+  OnActivate = FormActivate
+  OnClose = FormClose
+  OnCreate = FormCreate
+  LCLVersion = '1.6.0.4'
+  object Memo1: TMemo
+    Left = 10
+    Height = 282
+    Top = 134
+    Width = 656
+    Font.CharSet = ANSI_CHARSET
+    Font.Height = -12
+    Font.Name = 'Courier New'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    Lines.Strings = (
+      'This example is presenting fast card reading feature of uFR devices with'
+      ' usage of "LinRowRead_" API command, by using default '
+      '$FF $FF $FF $FF $FF $FF Key A for Mifare Classic 1K and 4 K cards. '
+      ''
+      'If Default keyA does not match to card keyA, data will be represented as ''unknown'' or as '
+      'row of $EE bytes.'
+      ''
+      'For other card types key A is not used.'
+      ''
+      'Data output will be automatically saved during card reading in following formats: '
+      'as raw format (.mfd) '
+      'and/or '
+      'as .txt file '
+      'if appropriate chekboxes are checked (UNchecked by default).'
+      ''
+      'Feel free to use it on your projects. Enjoy!'
+      ''
+      'Digital Logic Team - 2015'
+      ''
+    )
+    ParentBidiMode = False
+    ParentFont = False
+    ReadOnly = True
+    ScrollBars = ssAutoBoth
+    TabOrder = 1
+  end
+  object btnOpen: TButton
+    Left = 8
+    Height = 81
+    Top = 8
+    Width = 104
+    Caption = 'OPEN READER'
+    OnClick = btnOpenClick
+    TabOrder = 2
+  end
+  object BtnInfo: TButton
+    Left = 555
+    Height = 46
+    Top = 9
+    Width = 114
+    Caption = 'Card Info'
+    Enabled = False
+    OnClick = BtnInfoClick
+    TabOrder = 3
+  end
+  object mLog: TMemo
+    Left = 10
+    Height = 104
+    Top = 423
+    Width = 656
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clNavy
+    Font.Height = -11
+    Font.Name = 'Courier New'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    ParentFont = False
+    TabOrder = 4
+  end
+  object btnRead: TButton
+    Left = 555
+    Height = 46
+    Top = 80
+    Width = 114
+    Caption = 'Read card'
+    Enabled = False
+    OnClick = btnReadClick
+    TabOrder = 5
+  end
+  object GroupBox1: TGroupBox
+    Left = 8
+    Height = 41
+    Top = 88
+    Width = 539
+    ClientHeight = 20
+    ClientWidth = 535
+    TabOrder = 6
+    object cbTxt: TCheckBox
+      Left = 375
+      Height = 23
+      Top = 1
+      Width = 143
+      Caption = 'Save as text file'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -11
+      Font.Name = 'Courier New'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 0
+    end
+    object cbRaw: TCheckBox
+      Left = 142
+      Height = 23
+      Top = 1
+      Width = 185
+      Caption = 'Save as raw data (.mfd)'
+      Font.CharSet = ANSI_CHARSET
+      Font.Height = -11
+      Font.Name = 'Courier New'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentFont = False
+      TabOrder = 1
+    end
+    object Label1: TLabel
+      Left = 8
+      Height = 15
+      Top = 4
+      Width = 105
+      Caption = 'Output options:'
+      Font.CharSet = ANSI_CHARSET
+      Font.Color = clNavy
+      Font.Height = -12
+      Font.Name = 'Courier New'
+      Font.Pitch = fpFixed
+      Font.Quality = fqDraft
+      ParentColor = False
+      ParentFont = False
+    end
+  end
+  object mInfo: TMemo
+    Left = 128
+    Height = 81
+    Top = 9
+    Width = 420
+    Color = clInfoBk
+    Font.CharSet = ANSI_CHARSET
+    Font.Color = clNavy
+    Font.Height = -12
+    Font.Name = 'Courier New'
+    Font.Pitch = fpFixed
+    Font.Quality = fqDraft
+    ParentBidiMode = False
+    ParentFont = False
+    ReadOnly = True
+    TabOrder = 0
+    TabStop = False
+  end
+end
