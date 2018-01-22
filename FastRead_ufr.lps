@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CONFIG>
+  <ProjectSession>
+    <PathDelim Value="\"/>
+    <Version Value="9"/>
+    <BuildModes Active="Default"/>
+    <Units Count="12">
+      <Unit0>
+        <Filename Value="FastRead_ufr.lpr"/>
+        <IsPartOfProject Value="True"/>
+        <UsageCount Value="204"/>
+      </Unit0>
+      <Unit1>
+        <Filename Value="main.pas"/>
+        <IsPartOfProject Value="True"/>
+        <ComponentName Value="MainForm"/>
+        <HasResources Value="True"/>
+        <ResourceBaseClass Value="Form"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="296"/>
+        <CursorPos X="16" Y="309"/>
+        <UsageCount Value="204"/>
+      </Unit1>
+      <Unit2>
+        <Filename Value="ufcoder.pas"/>
+        <IsPartOfProject Value="True"/>
+        <IsVisibleTab Value="True"/>
+        <EditorIndex Value="-1"/>
+        <TopLine Value="685"/>
+        <CursorPos X="19" Y="700"/>
+        <UsageCount Value="204"/>
+      </Unit2>
+      <Unit3>
+        <Filename Value="..\uFCoderSimplest\functclass.pas"/>
+        <UnitName Value="FunctClass"/>
+        <TopLine Value="5"/>
+        <CursorPos X="47" Y="9"/>
+        <UsageCount Value="39"/>
+      </Unit3>
+      <Unit4>
+        <Filename Value="C:\lazarus\lcl\customtimer.pas"/>
+        <UnitName Value="CustomTimer"/>
+        <TopLine Value="184"/>
+        <CursorPos Y="198"/>
+        <UsageCount Value="7"/>
+      </Unit4>
+      <Unit5>
+        <Filename Value="C:\lazarus\lcl\interfaces\win32\win32object.inc"/>
+        <TopLine Value="574"/>
+        <CursorPos Y="597"/>
+        <UsageCount Value="7"/>
+      </Unit5>
+      <Unit6>
+        <Filename Value="C:\lazarus\lcl\include\control.inc"/>
+        <TopLine Value="2704"/>
+        <CursorPos Y="2719"/>
+        <UsageCount Value="2"/>
+      </Unit6>
+      <Unit7>
+        <Filename Value="C:\lazarus\lcl\include\progressbar.inc"/>
+        <TopLine Value="148"/>
+        <CursorPos X="36" Y="153"/>
+        <UsageCount Value="3"/>
+      </Unit7>
+      <Unit8>
+        <Filename Value="C:\lazarus\lcl\include\statuspanels.inc"/>
+        <TopLine Value="20"/>
+        <CursorPos X="92" Y="28"/>
+        <UsageCount Value="7"/>
+      </Unit8>
+      <Unit9>
+        <Filename Value="C:\lazarus\lcl\include\application.inc"/>
+        <TopLine Value="364"/>
+        <CursorPos Y="379"/>
+        <UsageCount Value="2"/>
+      </Unit9>
+      <Unit10>
+        <Filename Value="C:\lazarus\lcl\include\buttoncontrol.inc"/>
+        <TopLine Value="41"/>
+        <CursorPos Y="56"/>
+        <UsageCount Value="2"/>
+      </Unit10>
+      <Unit11>
+        <Filename Value="C:\lazarus\lcl\include\buttons.inc"/>
+        <TopLine Value="331"/>
+        <CursorPos X="56" Y="336"/>
+        <UsageCount Value="2"/>
+      </Unit11>
+    </Units>
+    <General>
+      <ActiveWindowIndexAtStart Value="-1"/>
+    </General>
+    <JumpHistory HistoryIndex="-1"/>
+  </ProjectSession>
+</CONFIG>
