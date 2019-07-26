@@ -7,15 +7,15 @@ const
    {$IFDEF Windows}
      {$CALLING stdcall}
        //setDllDirectory('..\lib\');
-       libdll='uFCoder-x86.dll';
+       libdll='ufr-lib/windows/x86/uFCoder-x86.dll';
      {$ELSE}
    {$IFDEF Linux}
      {$CALLING cdecl}
      {$IFDEF CPU64}
-           libdll='libuFCoder-x86_64.so';
+           libdll='ufr-lib/linux/x86_64/libuFCoder-x86_64.so';
        {$ELSE}
          {$IFDEF CPU32}
-           libdll='libuFCoder-x86.so';
+           libdll='ufr-lib/linux/x86/libuFCoder-x86.so';
          {$ENDIF}
      {$ENDIF}
    {$ENDIF}
@@ -110,6 +110,8 @@ type
 
 
 function ReaderOpen: DL_STATUS stdcall;
+
+function ReaderOpenEx(reader_type: Longint; port_name: pchar; port_interface: Longint; arg: pchar):DL_STATUS;stdcall;external libdll;
 
 function ReaderReset: DL_STATUS stdcall;
 
@@ -701,6 +703,10 @@ function GetReaderSerialNumber(const lpulSerialNumber: PLongInt):DL_STATUS;stdca
 function GetDllVersionStr(): PChar stdcall;external libdll;
 function ReaderUISignal(light_signal_mode: Byte;beep_signal_mode: Byte):DL_STATUS;stdcall; external libdll;
 function GetCardId(var lpucCardType: Byte;var lpulCardSerial: LongInt):DL_STATUS;stdcall; external libdll;
+
+
+//function ReaderOpenEx(reader_type: Word; port_name: pchar; port_interface: Word; arg: pchar):DL_STATUS;stdcall;external libdll;
+
 
 function GetCardIdEx( lpuSak:PByte;
 	 	     aucUid:PByte;

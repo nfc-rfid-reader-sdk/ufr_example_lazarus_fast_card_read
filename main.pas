@@ -22,8 +22,18 @@ uses
     btnRead  : TButton;
     cbRaw    : TCheckBox;
     cbTxt    : TCheckBox;
+    checkAdvanced: TCheckBox;
+    txtReaderType: TEdit;
+    txtPortName: TEdit;
+    txtPortInterface: TEdit;
+    txtArg: TEdit;
     GroupBox1: TGroupBox;
+    groupAdvanced: TGroupBox;
     Label1   : TLabel;
+    lblReaderType: TLabel;
+    lblPortName: TLabel;
+    lblPortInterface: TLabel;
+    lblArg: TLabel;
     Memo1    : TMemo;
     mInfo    : TMemo;
     mLog     : TMemo;
@@ -31,6 +41,7 @@ uses
     procedure btnOpenClick(Sender: TObject);
     procedure BtnInfoClick(Sender: TObject);
     procedure btnReadClick(Sender: TObject);
+    procedure checkAdvancedClick(Sender: TObject);
     procedure FormActivate(Sender: TObject);
     procedure FormClose(Sender: TObject; var CloseAction: TCloseAction);
     procedure FormCreate(Sender: TObject);
@@ -139,6 +150,17 @@ begin
 
  btnRead.Enabled:= False;
  btnInfo.SetFocus;
+end;
+
+procedure TMainForm.checkAdvancedClick(Sender: TObject);
+begin
+    if checkAdvanced.Checked = True
+       then begin
+           groupAdvanced.Enabled := True;
+       end
+    else begin
+           groupAdvanced.Enabled := False;
+       end;
 end;
 
 procedure TMainForm.FormActivate(Sender: TObject);
@@ -264,16 +286,72 @@ end;
 procedure TMainForm.Open;
 var
     ConnResult :LongInt;
+    reader_type,
+    port_name,
+    port_interface,
+    arg :string;
+
+    reader_type_int,
+    port_interface_int :Longint;
+
+
 begin
     if not Reader_Conn
        then
            begin
-           ConnResult:= ReaderOpen();
+           if  checkAdvanced.Checked
+              then
+              begin
+                  reader_type := txtReaderType.Text;
+                  port_name := txtPortName.Text;
+                  port_interface := txtPortInterface.Text;
+                  arg := txtArg.Text;
+
+                 try
+                     reader_type_int := StrToInt(reader_type);
+                 except
+                     On E : EConvertError do
+                     begin
+                         ShowMessage('Incorrect parameter: Reader type');
+                         txtReaderType.SetFocus();
+                     end;
+                 end;
+
+                 try
+                   if port_interface='U'
+                     then
+                         begin
+                             port_interface_int := 85;
+                         end
+                  else if port_interface='T'
+                      then
+                         begin
+                             port_interface_int := 84;
+                         end
+                  else
+                      begin
+                          port_interface_int := StrToInt(port_interface);
+                      end;
+
+                  except
+                      On E : EConvertError do begin
+                          ShowMessage('Incorrect parameter: Port interface');
+                          txtPortInterface.SetFocus();
+                      end;
+                  end;
+                  ConnResult:= ReaderOpenEx(reader_type_int, PChar(port_name), port_interface_int , PChar(arg));
+               end
+           else
+               begin
+                   ConnResult:= ReaderOpen();
+               end;
+
            if ConnResult=DL_OK
               then
                   begin
                   Reader_Conn:= True;
                   mLog.Lines.append(DevInfo);
+                  ReaderUISignal(1,1);
                   end
               else
                   begin
